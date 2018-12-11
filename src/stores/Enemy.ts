@@ -18,7 +18,9 @@ const store = mobx.observable({
        this.is_attacking = true;
 
        if (target.current_health - this.attack_power <= 0) {
-            target.is_dead = true;
+            setTimeout(() => {
+                target.is_dead = true;
+            }, this.attack_speed)
         } else {
             setTimeout(() => {
                 target.current_health -= this.attack_power;
