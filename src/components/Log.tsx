@@ -9,7 +9,7 @@ export default class Resource {
     }
     view (vnode: any) {
         return (
-            <div className="panel">
+            <div className="panel" style={{height: '90%'}}>
                 <div className="panel-header" style={ {textAlign: "center"} }>
                     <h1 className="panel-title">Log</h1>
                 </div>

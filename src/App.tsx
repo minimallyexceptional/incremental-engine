@@ -2,12 +2,14 @@ import * as m from 'mithril';
 
 import TabOne from './layout/TabOne'
 import TabTwo from './layout/TabTwo'
+import TabThree from './layout/TabThree'
 
 export default class  App {
   _renderTab(activeTab, vnode) {
     switch (activeTab) {
       case 1: return  <TabOne store={vnode.attrs.store} />
       case 2: return  <TabTwo store={vnode.attrs.store} />
+      case 3: return  <TabThree store={vnode.attrs.store} />
       default: return  <TabOne store={vnode.attrs.store} />
     }
   }
@@ -28,7 +30,7 @@ export default class  App {
                     <a href="#" >Log</a>
                   </li>
                   <li className={`tab-item ${store.activeTab == 3 ? 'active' : ''}`} onclick={() => store.setTab(3)}>
-                    <a href="#">Research</a>
+                    <a href="#">Combat</a>
                   </li>
                   <li className={`tab-item ${store.activeTab == 4 ? 'active' : ''}`} onclick={() => store.setTab(4)}>
                     <a href="#">Options</a>
