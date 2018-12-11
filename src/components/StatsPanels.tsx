@@ -3,8 +3,8 @@ import * as m from 'mithril';
 // View
 export default class StatsPanel {
     view (vnode: any) {
-            const resourceOne = vnode.attrs.resourceOne;
-            const resourceTwo = vnode.attrs.resourceTwo;
+            const resourceOne = vnode.attrs.store.resourceOne;
+            const resourceTwo = vnode.attrs.store.resourceTwo;
         return (
             <div className="card">
                 <div className="card-body">

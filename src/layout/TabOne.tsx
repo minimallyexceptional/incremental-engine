@@ -11,16 +11,16 @@ export default class TabOne {
                 <div className="container">
                     <div className="columns">
                         <div className="column col-12">
-                            <StatsPanel resourceOne={vnode.attrs.resourceOne} resourceTwo={vnode.attrs.resourceTwo} />
+                            <StatsPanel store={vnode.attrs.store} primaryResource={vnode.attrs.store.resourceOne} />
                         </div>
                         <div className="column col-6">
-                            <Resource store={vnode.attrs.resourceOne} requiredResource={null} />
+                            <Resource store={vnode.attrs.store} primaryResource={vnode.attrs.store.resourceOne} />
                         </div>
                         <div className="column col-6">
-                            <Resource store={vnode.attrs.resourceOne} requiredResource={null} />
+                            <Resource store={vnode.attrs.store} primaryResource={vnode.attrs.store.resourceOne} />
                         </div>
                         <div className="column col-12">
-                            <Resource store={vnode.attrs.resourceTwo} requiredResource={vnode.attrs.resourceOne} />
+                            <Resource store={vnode.attrs.store} primaryResource={vnode.attrs.store.resourceTwo} requiredResource={vnode.attrs.store.resourceOne}/>
                         </div>
                     </div>
                 </div>

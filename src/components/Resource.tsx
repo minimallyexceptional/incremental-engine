@@ -47,30 +47,30 @@ export default class Resource {
 		this._checkAutomation(vnode.attrs.store, vnode.attrs.requiredResource)
 	}
     view (vnode: any) {
-			const store = vnode.attrs.store;
-			const required = vnode.attrs.requiredResource;
-			this._checkRequiredCost(vnode.attrs.store, vnode.attrs.requiredResource);
-        return (
-					<div className="card">
-						<div className="card-header">
-						<div className="card-title h5">{store.name}</div>
-						<div className="card-subtitle text-gray">{store.tagline}</div>
-						</div>
-						<div className="card-body">
-							<div className="bar">
-								<div 
-									className="bar-item" 
-									role="progressbar" 
-									style={{width: `${store.progress}%`}} 
-									aria-valuenow={store.progress} 
-									aria-valuemin={store.min_value}
-									aria-valuemax={store.max_value} />
-							</div>
-						</div>
-						<div className="card-footer">
-							{this._rednderButton(store, store.does_require, required)}
-						</div>
+		const store = vnode.attrs.primaryResource;
+		const required = vnode.attrs.requiredResource;
+		this._checkRequiredCost(vnode.attrs.store, vnode.attrs.requiredResource);
+		return (
+			<div className="card">
+				<div className="card-header">
+				<div className="card-title h5">{store.name}</div>
+				<div className="card-subtitle text-gray">{store.tagline}</div>
+				</div>
+				<div className="card-body">
+					<div className="bar">
+						<div 
+							className="bar-item" 
+							role="progressbar" 
+							style={{width: `${store.progress}%`}} 
+							aria-valuenow={store.progress} 
+							aria-valuemin={store.min_value}
+							aria-valuemax={store.max_value} />
 					</div>
-		  );
+				</div>
+				<div className="card-footer">
+					{this._rednderButton(store, store.does_require, required)}
+				</div>
+			</div>
+		);
     }
 }
