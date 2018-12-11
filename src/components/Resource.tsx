@@ -44,7 +44,7 @@ export default class Resource {
 		}, 1000);
 	}
 	oninit (vnode) {
-		this._checkAutomation(vnode.attrs.store, vnode.attrs.requiredResource)
+		this._checkAutomation(vnode.attrs.primaryResource, vnode.attrs.requiredResource)
 	}
     view (vnode: any) {
 		const store = vnode.attrs.primaryResource;
