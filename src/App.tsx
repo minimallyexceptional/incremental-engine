@@ -3,6 +3,7 @@ import * as m from 'mithril';
 import TabOne from './layout/TabOne'
 import TabTwo from './layout/TabTwo'
 import TabThree from './layout/TabThree'
+import TabFour from './layout/TabFour';
 
 export default class  App {
   _renderTab(activeTab, vnode) {
@@ -10,7 +11,8 @@ export default class  App {
       case 1: return  <TabOne store={vnode.attrs.store} />
       case 2: return  <TabTwo store={vnode.attrs.store} />
       case 3: return  <TabThree store={vnode.attrs.store} />
-      default: return  <TabOne store={vnode.attrs.store} />
+      case 4: return  <TabFour store={vnode.attrs.store} />
+      default: return <TabOne store={vnode.attrs.store} />
     }
   }
   view (vnode) {
@@ -33,7 +35,7 @@ export default class  App {
                     <a href="#">Combat</a>
                   </li>
                   <li className={`tab-item ${store.activeTab == 4 ? 'active' : ''}`} onclick={() => store.setTab(4)}>
-                    <a href="#">Options</a>
+                    <a href="#">Progress</a>
                   </li>
                 </ul>
               </div>
