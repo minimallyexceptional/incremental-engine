@@ -8,13 +8,13 @@ const store = mobx.observable({
     min_value: 0,
     max_value: 100,
     job_power: 1,
-    job_speed: 0.005,
+    job_speed: 0.05,
     automated: true,
     in_progress: false,
     does_require: true,
     cant_afford: false,
     required_resource: 'heat',
-    required_resource_cost: 500,
+    required_resource_cost: 499,
     gather: function () {
         let progress = setInterval (() => {
             if (this.progress < 100) {

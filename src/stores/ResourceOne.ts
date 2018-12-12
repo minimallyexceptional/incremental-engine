@@ -6,7 +6,7 @@ const store = mobx.observable({
     total: 0,
     progress: 0,
     min_value: 0,
-    max_value: 100,
+    max_value: 1000,
     job_power: 500,
     job_speed: 0.1,
     automated: true,
@@ -19,11 +19,17 @@ const store = mobx.observable({
         let progress = setInterval (() => {
             if (this.progress < 100) {
                 this.in_progress = true;
-                this.progress += this.job_speed;
+                if (this.total < this.max_value) {
+                    this.progress += this.job_speed;
+                }
             } else {
                 this.in_progress = false;
                 this.progress = 0;
-                this.addToTotal(this.job_power);
+                if (this.total + this.job_power <= this.max_value) {
+                    this.addToTotal(this.job_power);
+                } else {
+                    this.addToTotal(this.max_value - this.total);
+                }
                 clearInterval(progress);
             }
         }, this.job_speed)
@@ -34,11 +40,15 @@ const store = mobx.observable({
                 this.cant_afford = false;
                 if (this.progress < 100) {
                     this.in_progress = true;
-                    this.progress += this.job_speed;
+                    if (this.total < this.max_value) this.progress += this.job_speed;
                 } else {
                     this.in_progress = false;
                     this.progress = 0;
-                    this.addToTotal(this.job_power);
+                    if (this.total + this.job_power <= this.max_value) {
+                        this.addToTotal(this.job_power);
+                    } else {
+                        this.addToTotal(this.max_value - this.total);
+                    }
                     requiredResource.takeFromTotal(this.job_power);
                     clearInterval(progress);
                 }    

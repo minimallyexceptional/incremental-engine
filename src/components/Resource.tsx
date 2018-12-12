@@ -2,7 +2,7 @@ import * as m from 'mithril';
 
 // View
 export default class Resource {
-	_rednderButton (resource, does_require, requiredResource) {
+	_renderButton (resource, does_require, requiredResource) {
 		if (does_require) {
 			return (
 				<button 
@@ -39,7 +39,7 @@ export default class Resource {
 					store.gatherRequired(requiredResource)
 				} else {
 					store.gather();
-				}
+				}				
 			}
 		}, 1000);
 	}
@@ -68,7 +68,7 @@ export default class Resource {
 					</div>
 				</div>
 				<div className="card-footer">
-					{this._rednderButton(store, store.does_require, required)}
+					{this._renderButton(store, store.does_require, required)}
 				</div>
 			</div>
 		);
